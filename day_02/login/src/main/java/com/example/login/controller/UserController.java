@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.security.NoSuchAlgorithmException;
 
 @RestController
@@ -16,7 +17,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/login")
-    public ResponseEntity<?> userLogin(@RequestBody LoginRequest loginRequest) throws NoSuchAlgorithmException {
+    public ResponseEntity<?> userLogin(@Valid @RequestBody LoginRequest loginRequest) throws NoSuchAlgorithmException {
         return userService.userLogin(loginRequest);
     }
 }
